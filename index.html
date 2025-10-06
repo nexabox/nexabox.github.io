@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexaBox源点工作室 - 系统软件开箱先锋</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
+            color: #f8fafc; 
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        /* 粒子背景装饰 */
+        .particle-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        /* 头部区域 */
+        .header {
+            position: relative;
+            z-index: 1;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.2) 0%, transparent 60%);
+        }
+        .studio-name {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #38bdf8, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+        .tagline {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* 内容卡片 */
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(56, 189, 248, 0.15);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .card-title i {
+            color: #38bdf8;
+            font-size: 1.5em;
+        }
+        .card-desc {
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        /* B站链接按钮 */
+        .bilibili-link {
+            display: inline-block;
+            background: linear-gradient(90deg, #fb7299, #fca5c2);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(251, 114, 153, 0.3);
+        }
+        .bilibili-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(251, 114, 153, 0.5);
+        }
+        /* 底部信息 */
+        .footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+    </style>
+    <!-- 引入图标库 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- 粒子背景（动态装饰） -->
+    <div class="particle-bg" id="particles-js"></div>
+
+    <!-- 头部 -->
+    <header class="header">
+        <h1 class="studio-name">nexabox源点工作室</h1>
+        <p class="tagline">B站系统软件开箱先行者 | 用直观测评，带你看透每一款软件的核心价值</p>
+    </header>
+
+    <!-- 主要内容 -->
+    <section class="content">
+        <!-- 工作室介绍卡片 -->
+        <div class="card">
+            <h2 class="card-title">
+                <<i class="fa fa-lightbulb-o"></</i>
+                关于我们
+            </h2>
+            <p class="card-desc">
+                NexaBox源点是专注于<b>系统软件开箱测评</b>的内容工作室，深耕B站内容生态。我们不做泛泛而谈的参数罗列，而是以「用户视角」为核心，从软件安装、功能实测到场景化体验，用直观的视频呈现每一款系统软件的真实表现——无论是最新的操作系统更新、专业工具的新版本，还是小众但实用的系统辅助软件，都能在这里找到深度且易懂的测评内容。
+            </p>
+            <p class="card-desc">
+                我们的目标：让每一位观众看完视频，都能清楚「这款软件是否适合我」，帮你避开选择误区，高效找到匹配需求的系统工具。
+            </p>
+        </div>
+
+        <!-- 内容特色卡片 -->
+        <div class="card">
+            <h2 class="card-title">
+                <<i class="fa fa-play-circle"></</i>
+                内容亮点
+            </h2>
+            <p class="card-desc">
+                <b>1. 时效性优先</b>：热门系统软件/更新发布后，最快24小时内出开箱测评，让你第一时间掌握新功能动态；<br>
+                <b>2. 场景化实测</b>：不止展示「功能有什么」，更会模拟办公、设计、游戏等真实场景，测试软件的兼容性与实用性；<br>
+                <b>3. 干货密度高</b>：视频全程无废话，重点内容搭配字幕标注，关键操作步骤清晰可回溯，方便观众随时参考。
+            </p>
+            <a href="https://space.bilibili.com/3546634614999556" target="_blank" class="bilibili-link">
+                <<i class="fa fa-bilibili"></</i> 直达B站工作室主页
+            </a>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <p>© 2025 NexaBox源点工作室 | 专注系统软件开箱，让选择更简单</p>
+    </footer>
+
+    <!-- 粒子背景脚本（动态效果） -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // 初始化粒子背景
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#38bdf8" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 3, "random": true },
+                "line_linked": { 
+                    "enable": true, 
+                    "distance": 150, 
+                    "color": "#38bdf8", 
+                    "opacity": 0.2, 
+                    "width": 1 
+                },
+                "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
